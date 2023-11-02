@@ -111,7 +111,7 @@ async fn build_flatpak(game_id: &str, game_dir: &Path) -> Result<(), Error> {
             "--socket=pulseaudio".to_owned(),
             "--share=network".to_owned(),
             "--device=dri".to_owned(),
-            "--device=input".to_owned(),
+            // "--device=input".to_owned(),
             "--filesystem=/tmp/devcade/persistence.sock".to_owned(),
         ],
         build_options: FlatpakBuildOptions { no_debuginfo: true },
