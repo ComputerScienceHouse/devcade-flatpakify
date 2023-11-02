@@ -14,6 +14,10 @@ apt install flatpak-builder flatpak
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Install devcade-flatpakify
 cargo install --git https://github.com/ComputerScienceHouse/devcade-flatpakify
+# Add flatpak repos
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# Install SDK
+flatpak install --user org.freedesktop.Sdk/x86_64/22.08 org.freedesktop.Platform/x86_64/22.08
 ```
 
 If you're using some other distribubution, I trust you can figure it out :)

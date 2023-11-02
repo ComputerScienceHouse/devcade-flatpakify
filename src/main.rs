@@ -15,6 +15,7 @@ struct FlatpakManifest {
     command: String,
     finish_args: Vec<String>,
     modules: Vec<FlatpakModule>,
+    build_options: FlatpakBuildOptions,
 }
 
 #[derive(Serialize, Debug, Clone)]
@@ -31,6 +32,11 @@ struct FlatpakModule {
 struct FlatpakSource {
     r#type: FlatpakSourceType,
     path: String,
+}
+
+#[derive(Serialize, Debug, Clone)]
+struct FlatpakBuildOptions {
+    no_debuginfo: bool,
 }
 
 #[derive(Serialize, Debug, Clone)]
@@ -107,6 +113,7 @@ async fn build_flatpak(game_id: &str, game_dir: &Path) -> Result<(), Error> {
             "--device=dri".to_owned(),
             "--filesystem=/tmp/devcade/persistence.sock".to_owned(),
         ],
+        build_options: FlatpakBuildOptions { no_debuginfo: true },
         modules: vec![FlatpakModule {
             name: game_id.to_string(),
             build_system: "simple".to_owned(),
