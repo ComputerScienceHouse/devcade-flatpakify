@@ -41,14 +41,17 @@ devcade-flatpakify --help
 
 ### To flatpak a dotnet project for devcade:
 
+First find the GAME_ID by navigating to the website.
+If you have no created a game first do so by going to **Create Game** and following the instructions there.
+After creating a game go to the **Games** tab click on your game, click on **upload** and on the right under **How To Upload** the GAME_ID will be shown and will look like: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+
 Build your project if you have not done so already (make sure it is self contained):
 ```bash
 dotnet publish -c Release -r linux-x64 --self-contained
 ```
-Then either navigate to the folder **containing** the publish directory.
+Then navigate to the folder **containing** the publish directory.
 The path to the directory containing the publish folder will look similar to: DevcadeGame/bin/Release/net10.0/linux-x64/ <br>
-\<GAME_ID\> will be whatever you want your game to be called but cannot contain any periods.<br>
-and then run:
+and run:
 ```bash
 devcade-flatpackify <GAME_ID>
 ```
