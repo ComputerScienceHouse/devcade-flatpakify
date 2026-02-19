@@ -55,8 +55,8 @@ and run:
 ```bash
 devcade-flatpackify <GAME_ID>
 ```
-or if you want to specify the path of the directory containing the publish folder more explicitly or without cd-ing to it everytime:
+Alternatively, you can specify the directory containing the publish folder as a command line argument argument:
 ```bash
-devcade-flatpackify <GAME_ID> <Path-to-publish-folder>
+devcade-flatpackify <GAME_ID> <Path-to-publish-folder-parent>
 ```
 
