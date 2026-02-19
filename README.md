@@ -28,3 +28,35 @@ If you're using some other distribubution, I trust you can figure it out :)
 
 1. Install Debian [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install -d Debian`
 2. See [the steps above for Debian](#Debian)
+
+## Usage
+
+```bash
+devcade-flatpakify <GAME_ID> [GAME_DIR]
+```
+For more information, try:
+```bash
+devcade-flatpakify --help
+```
+
+### To flatpak a dotnet project for devcade:
+
+First find the GAME_ID by navigating to the website.
+If you have no created a game first do so by going to **Create Game** and following the instructions there.
+After creating a game go to the **Games** tab click on your game, click on **upload** and on the right under **How To Upload** the GAME_ID will be shown and will look like: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+
+Build your project if you have not done so already (make sure it is self contained):
+```bash
+dotnet publish -c Release -r linux-x64 --self-contained
+```
+Then navigate to the folder **containing** the publish directory.
+The path to the directory containing the publish folder will look similar to: DevcadeGame/bin/Release/net10.0/linux-x64/ <br>
+and run:
+```bash
+devcade-flatpackify <GAME_ID>
+```
+Alternatively, you can specify the directory containing the publish folder as a command line argument argument:
+```bash
+devcade-flatpackify <GAME_ID> <Path-to-publish-folder-parent>
+```
+
